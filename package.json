@@ -1,0 +1,20 @@
+{
+  "name": "angular-wasm-gpt",
+  "version": "0.0.0",
+  "main": "server.js",
+  "scripts": {
+    "ng": "ng",
+    "start": "electron .",
+    "loadModel": "wget https://lxe.co/wasmgpt/gpt-2.data -P ./src"
+  },
+  "private": true,
+  "license": "MIT",
+
+  "dependencies": {
+    "express": "^4.18.2",
+    "live-server": "^1.2.2"
+  },
+  "devDependencies": {
+    "electron": "^25.2.0"
+  }
+}
