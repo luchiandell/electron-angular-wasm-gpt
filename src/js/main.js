@@ -61,6 +61,8 @@ var Module = {
     $profileDefault = document.getElementById("profile-default");
     $profileJoker = document.getElementById("profile-joker");
     $profileMaths = document.getElementById("profile-maths");
+    $clear = document.getElementById("clear-screen");
+
 
     $profileDefault.addEventListener("click", function (e) {
       top_k = 80;
@@ -102,6 +104,11 @@ var Module = {
       $profileMaths.style.backgroundColor = "#7F234F";
       $profileDefault.style.backgroundColor = '#1885C3';
       $profileJoker.style.backgroundColor = '#1885C3';
+    });
+
+
+    $clear.addEventListener("click", function (e) {
+      $output.innerHTML = '';
     });
 
     $chat.addEventListener("submit", function(e) {
