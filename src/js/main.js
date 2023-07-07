@@ -11,6 +11,11 @@ document.body.appendChild(script);
 
 $stdout.innerHTML = "Loading model...";
 
+let top_k = 80;
+let top_p = 0.9;
+let temp = 0.8;
+let repetition_penalty = 1.2;
+
 const $output = document.getElementById("output");
 
 $output.addEventListener("DOMNodeInserted", () => {
@@ -53,6 +58,30 @@ var Module = {
     $chat.style.display = "flex";
 
     $input = document.getElementById("inputPrompt");
+    $profileDefault = document.getElementById("profile-default");
+    $profileJoker = document.getElementById("profile-joker");
+    $profileMaths = document.getElementById("profile-maths");
+
+    $profileJoker.addEventListener("click", function(e) {
+      top_k = 80;
+      top_p = 0.9;
+      temp = 0.8;
+      repetition_penalty = 1.2;
+    });
+
+    $profileJoker.addEventListener("click", function(e) {
+      top_k = 80;
+      top_p = 0.75;
+      temp = 0.8;
+      repetition_penalty = 1.5;
+    });
+
+    $profileMaths.addEventListener("click", function(e) {
+      top_k = 80;
+      top_p = 0.51;
+      temp = 0.8;
+      repetition_penalty = 1.2;
+    });
 
     $chat.addEventListener("submit", function(e) {
       e.preventDefault();
@@ -62,23 +91,14 @@ var Module = {
       const inputPrompt = $input.value;
       $input.value = "";
 
-      const prompt =
-        "" +
-        // 'A conversation between a human and an intelligent and helpful AI assistant:\n\n' +
-        // 'Human: What is the capital of France?\n' +
-        // 'Assistant: The capital of France is Paris.\n\n' +
-        // 'Human: How many people live in Paris?\n' +
-        // 'Assistant: About 2.2 million people live in Paris.\n\n' + $input.innerText + '\n' +
-        "User: " +
-        inputPrompt +
-        "\nAssistant:";
+      const prompt = "" + "User: " + inputPrompt + "\nAssistant:";
 
       console.log(prompt);
 
-      const top_k = 80;
-      const top_p = 0.9;
-      const temp = 0.8;
-      const repetition_penalty = 1.2;
+      console.log("top_k: " + top_k);
+      console.log("top_p: " + top_p);
+      console.log("temp: " + temp);
+      console.log("repetition_penalty: " + repetition_penalty);
 
       Module.generate(prompt, top_k, top_p, temp, repetition_penalty);
       isGenerating = true;
