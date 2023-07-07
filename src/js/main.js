@@ -33,7 +33,7 @@ var Module = {
   print: print,
   printErr: print,
 
-  callback: function(resultStr) {
+  callback: function (resultStr) {
     console.log(resultStr);
     if (resultStr === "<|endoftext|>") {
       $output.innerHTML += "\n";
@@ -44,7 +44,7 @@ var Module = {
       $output.innerHTML = text.replace(/(User|Assistant):(\S)/g, "$1: $2");
 
       if (runawayGenerateTimer) clearTimeout(runawayGenerateTimer);
-      runawayGenerateTimer = setTimeout(function() {
+      runawayGenerateTimer = setTimeout(function () {
         $input.diabled = false;
         isGenerating = false;
       }, 10000);
@@ -62,25 +62,46 @@ var Module = {
     $profileJoker = document.getElementById("profile-joker");
     $profileMaths = document.getElementById("profile-maths");
 
-    $profileJoker.addEventListener("click", function(e) {
+    $profileDefault.addEventListener("click", function (e) {
       top_k = 80;
       top_p = 0.9;
       temp = 0.8;
       repetition_penalty = 1.2;
+
+      console.log("default");
+      console.log(top_k, top_p, temp);
+
+      $profileDefault.style.backgroundColor = "#7F234F";
+      $profileMaths.style.backgroundColor = "#1885C3";
+      $profileJoker.style.backgroundColor = "#1885C3";
     });
 
-    $profileJoker.addEventListener("click", function(e) {
+    $profileJoker.addEventListener("click", function (e) {
       top_k = 80;
       top_p = 0.75;
       temp = 0.8;
       repetition_penalty = 1.5;
+
+      console.log("joker");
+      console.log(top_k, top_p, temp);
+
+      $profileJoker.style.backgroundColor = "#7F234F";
+      $profileMaths.style.backgroundColor = "#1885C3";
+      $profileDefault.style.backgroundColor = "#1885C3";
     });
 
-    $profileMaths.addEventListener("click", function(e) {
+    $profileMaths.addEventListener("click", function (e) {
       top_k = 80;
       top_p = 0.51;
       temp = 0.8;
       repetition_penalty = 1.2;
+
+      console.log("maths");
+      console.log(top_k, top_p, temp);
+
+      $profileMaths.style.backgroundColor = "#7F234F";
+      $profileDefault.style.backgroundColor = '#1885C3';
+      $profileJoker.style.backgroundColor = '#1885C3';
     });
 
     $chat.addEventListener("submit", function(e) {
