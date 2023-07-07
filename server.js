@@ -18,8 +18,8 @@ expressApp.listen(PORT, () => console.log(`Server listening on port: ${PORT}`));
 
 const createWindow = () => {
   const win = new BrowserWindow({
-    width: 800,
-    height: 600
+    width: 1600,
+    height: 1000
   })
 
   //win.loadFile('index.html')

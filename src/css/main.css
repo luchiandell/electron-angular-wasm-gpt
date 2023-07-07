@@ -22,12 +22,12 @@ html {
 }
 
 body {
-  font-family: monospace;
+  font-family: 'Roboto', sans-serif;
   font-size: 16px;
   margin: 0;
   padding: 0;
-  background-color: #293b4d;
-  color: #fff;
+  background-color: #002D4B;
+  color: #F5F6F7;
 }
 
 #wrap {
@@ -52,15 +52,38 @@ body {
   padding: 8px;
   white-space: pre-wrap;
   height: 200px;
-  background-color: #000;
-  color: #fff;
+  background-color: #F5F6F7;
+  color: #002D4B;
   overflow-y: auto;
+  border-radius: 8px;
+
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #1885C3;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #0E0E0E;
 }
 
 #output {
   white-space: pre-wrap;
   overflow-y: auto;
-  color: #fff;
+  color: #DAF5FD;
 }
 
 #chat {
